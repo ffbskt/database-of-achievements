@@ -3,20 +3,14 @@ import Container
 
 id = Auth.Auth().get_user_id()
 proxy = Proxy.Proxy(id)
-permission = ({
-		"admin":{"change":[],
-			"visible":[], "hide":[]},
-		"user":{"change":["@name"], # @ - Only own
-		    	"visible":[], "hide":[]},
-		"__creator":{"change":['@invite'],
-			   "visible":[], "hide":[]},
-		"__id":{"change":['@invite'],
-			   "visible":[], "hide":[]}
-		 })
-stat_opt = ({'st_name':[], 'default':[], 'opt':[]})
+
 proxy.create_group('Group1')
 
-proxy.edit_group_stat(stat_name='permission', stat_value=permission, stat_opt='Dict')
+#permission = {}
+#proxy.edit_group_stat(stat_name='permission', stat_value=permission, stat_opt='Dict')
 
-print Container.GROUP_CONTAINER.container
+print "Finally of create group we have GroupData with permission to invite new peuple for creator," \
+      "We create ObjectData it's user who create a group"
+print Container.GROUP_CONTAINER.container, Container.GROUP_CONTAINER.container['123Group1'].permission
+print Container.USER_CONTAINER.container, Container.USER_CONTAINER.container['123Group1123']._roles
 #proxy.edit_group_stat(permission, stat_opt, name)

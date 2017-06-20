@@ -3,7 +3,7 @@ import Data
 class Conteiner(object):
     def __init__(self):
         self.container = {}
-        self.default_entity = Data.Data()
+        self.default_entity = None
 
     def get(self, key):
         if key is None:
